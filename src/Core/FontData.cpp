@@ -5,7 +5,7 @@
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
-#include <ftglyph.h>
+#include <freetype/ftglyph.h>
 
 #include <System/OpenGL.h>
 

@@ -4,6 +4,12 @@
 #include <math.h>
 #include <stdlib.h>
 
+// so clang can shut up about C code.
+#if defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wregister"
+#endif
+
 // double to float conversion.
 #pragma warning(disable: 4244)
 
@@ -333,5 +339,9 @@ uint_t aubio_silence_detection(fvec_t * o, smpl_t threshold)
 {
 	return (aubio_db_spl(o) < threshold);
 }
+
+#if defined(__clang__)
+#pragma clang diagnostic pop
+#endif
 
 }; // namespace Vortex
