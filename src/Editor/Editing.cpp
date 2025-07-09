@@ -1015,7 +1015,7 @@ void exportNotesAsLuaTable()
 	{
 		String beat = Str::val(it->row * BEATS_PER_ROW, 0, 3);
 		const char* fmt = (it == last) ? "{%s,%i}};\n" : "{%s,%i},";
-		Debug::log(fmt, beat, it->col);
+		Debug::log(fmt, &beat, it->col);
 	}
 	Debug::logBlankLine();
 	HudNote("Note table written to log.");
@@ -1060,7 +1060,8 @@ void pasteFromClipboard(bool insert)
 		double target = Str::readTime(text);
 		if(target > 0)
 		{
-			HudNote("Jump to %s.", Str::formatTime(target));
+			String time = Str::formatTime(target);
+			HudNote("Jump to %s.", &time);
 			gView->setCursorTime(target);
 		}
 	}

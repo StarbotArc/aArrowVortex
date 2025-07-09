@@ -478,14 +478,14 @@ ShortcutsImpl()
 	}
 }
 
-~ShortcutsImpl()
+virtual ~ShortcutsImpl()
 {
 }
 
 // ================================================================================================
 // ShortcutsImpl :: API functions.
 
-String getNotation(Action::Type action)
+String getNotation(Action::Type action, bool fullList = false)
 {
 	String out;
 	for(auto& shortcut : shortcutMappings_)
@@ -571,12 +571,12 @@ Shortcuts* gShortcuts = nullptr;
 
 void Shortcuts::create()
 {
-	gShortcuts = new ShortcutsImpl;
+	gShortcuts = static_cast<Shortcuts*>(new ShortcutsImpl);
 }
 
 void Shortcuts::destroy()
 {
-	delete (ShortcutsImpl*)gShortcuts;
+	delete static_cast<Shortcuts*>(gShortcuts);
 	gShortcuts = nullptr;
 }
 

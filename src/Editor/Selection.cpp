@@ -437,7 +437,7 @@ void selectRegion(int row, int endrow)
 
 		Str::fmt fmt("Selected measure %1 to %2 (%3 measures)");
 		fmt.arg(m1, 0, 2).arg(m2, 0, 2).arg(m2 - m1, 0, 2);
-		HudNote("%s", fmt);
+		HudNote("%s", &fmt);
 
 		setType(REGION);
 	}
