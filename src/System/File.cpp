@@ -510,7 +510,8 @@ Vector<String> getLines(StringRef path, bool* success)
 	if(!fp) { if(success) *success = false; return out; }
 	out.append();
 	std::array<char, kBufferSize> buffer;
-	for (size_t bytesRead; bytesRead = fread(buffer.data(), kNumberOne, buffer.size(), fp);)
+
+	for (size_t bytesRead; true; bytesRead = fread(buffer.data(), kNumberOne, buffer.size(), fp))
 	{
 		if(bytesRead > 0 && isNewline(buffer[0]) && out.back().len())
 		{

@@ -222,7 +222,7 @@ bool LoadSimfile(Simfile& sim, StringRef path)
 	else
 	{
 		Debug::blockBegin(Debug::ERROR, "could not load sim");
-		Debug::log("file: %s\n", path);
+		Debug::log("file: %s\n", &path);
 		Debug::log("reason: unknown sim format\n");
 		Debug::blockEnd();
 	}

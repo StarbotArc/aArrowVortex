@@ -19,6 +19,8 @@
 
 #include <Managers/StyleMan.h>
 
+#include <cmath>
+
 namespace Vortex {
 namespace Sm {
 
@@ -514,7 +516,7 @@ static void ParseNotes(ParseData& data, Chart* chart, StringRef style, char* not
 					{
 						ReadNoteRow(readNoteData, row, line, numLines);
 					}
-					ofs = ((int)round(192.0f / numLines * (i + 1)) - (int)round(192.0f / numLines * i));
+					ofs = ((int)std::round(192.0f / numLines * (i + 1)) - (int)std::round(192.0f / numLines * i));
 				}
 			}
 		}
